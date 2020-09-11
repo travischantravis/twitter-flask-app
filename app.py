@@ -17,7 +17,7 @@ callback = 'http://127.0.0.1:5000/callback'
 def home_page(name="Travis"):
     return render_template('index.html', name=name)
 
-# Get authorization in Twitter
+# Authorization in Twitter
 @app.route("/twitter")
 def twitter_auth():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret, callback)
@@ -46,7 +46,6 @@ def request_twitter():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret, callback)
     auth.set_access_token(token, token_secret)
     api = tweepy.API(auth)
-    public_tweets = api.home_timeline()
-    for tweet in public_tweets:
-        print(tweet.text)
-    return ender_template('profile.html',)
+    user = api.me()
+    user_name = user.name
+    return render_template('profile.html', user=user)
