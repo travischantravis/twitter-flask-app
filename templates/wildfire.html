@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Wildfires in California{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+
+  {% for tweet in tweets %}
+  <p>{{ tweet.text|e }}</p>
+  {% endfor %}
+</div>
+{% endblock %}
