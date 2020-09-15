@@ -2,6 +2,10 @@ import folium
 
 
 def quick_map():
-    start_coords = (46.9540700, 142.7360300)
-    folium_map = folium.Map(location=start_coords, zoom_start=14)
-    return folium_map._repr_html_()
+    olium_map = folium.Map(location=[41.88, -87.62],
+                           zoom_start=13,
+                           tiles="cartodbpositron",
+                           width='75%',
+                           height='75%')
+
+    return {"msg": "ok"}

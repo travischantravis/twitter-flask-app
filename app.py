@@ -68,6 +68,7 @@ def wildfire_page():
     return render_template('wildfire.html', tweets=tweets)
 
 
-@app.route("/map")
-def map_page():
-    return quick_map()
+@app.route("/maps")
+def maps_page():
+    msg = quick_map()
+    return render_template('maps.html')
