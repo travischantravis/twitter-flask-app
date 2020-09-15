@@ -1,6 +1,9 @@
 from flask import Flask, render_template, redirect, request, session
 import tweepy
+
+# Other .py files
 from analysis import analyse_tweets
+from maps import quick_map
 
 # Flask set-up
 app = Flask(__name__)
@@ -63,3 +66,8 @@ def wildfire_page():
     analyse_tweets(api, tweets)
 
     return render_template('wildfire.html', tweets=tweets)
+
+
+@app.route("/map")
+def map_page():
+    return quick_map()
