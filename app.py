@@ -71,4 +71,4 @@ def wildfire_page():
 @app.route("/maps")
 def maps_page():
     msg = quick_map()
-    return render_template('maps.html')
+    return render_template('maps/index.html')
